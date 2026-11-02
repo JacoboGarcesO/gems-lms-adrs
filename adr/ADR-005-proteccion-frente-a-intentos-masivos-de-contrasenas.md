@@ -2,6 +2,7 @@
 
 - **Estado:** Propuesto
 - **Escenario:** S2 (Seguridad)
+- **En la entrega (README):** E2
 - **Documentos:** `GEMS_Escenarios_arquitectonicos.html`, `GEMS_ISO25010_priorizacion.html`, `GEMS_ADR.html`
 
 ## Context
@@ -18,11 +19,11 @@
 
 ## Opciones consideradas
 
-### A. Límite general de solicitudes por dirección (lo actual)
+### A. Límite general de solicitudes por dirección
 
 Se limita el total de solicitudes por minuto por dirección, sin distinguir intentos fallidos de inicio de sesión.
 
-- **Gana:** Ya existe y no afecta el uso normal.
+- **Gana:** No afecta el uso normal.
 - **Paga:** Seguridad: permite hasta 600 intentos por minuto por dirección; no hay alerta ni protección por cuenta.
 - **¿Cumple la medida?** No: 600 intentos por minuto superan el máximo de 10.
 
@@ -44,11 +45,10 @@ Tras un número de fallos de inicio de sesión, el sistema exige un captcha para
 
 ## Decision
 
-Se adopta la **opción C**: tras varios fallos de inicio de sesión se exige un captcha, y el ingreso se completa con verificación en dos pasos (MFA). La opción A se descarta porque permite hasta 600 intentos por minuto por dirección y no cumple el máximo de 10. La opción B se descarta como medida única: frena la fuerza bruta con esperas, pero no distingue a una persona de un programa ni protege la cuenta si la contraseña ya fue adivinada.
+Pendiente: se elige entre A, B, C cuando se cuente con las tácticas.
+
+> Lectura preliminar (no es la decisión): B cumple la medida y protege a la cuenta aunque el ataque venga de muchas direcciones; C añade fricción solo cuando hay sospecha. A no cumple.
 
 ## Consequences
 
-- **Gana:** frena la automatización y protege la cuenta aunque se adivine la contraseña, y la fricción del captcha aparece solo ante sospecha.
-- **Paga:** otros pasos en el flujo de inicio de sesión (captcha y código de MFA) y dependencias nuevas que mantener; si el captcha es visual, hay problemas de accesibilidad.
-- **No resuelve:** la alerta al equipo en 5 min o menos, que requiere un aviso aparte.
-- **Supuesto abierto:** los estudiantes, incluidos los de 14 años y los de celulares de gama baja, pueden completar el captcha y el MFA sin abandonar el inicio de sesión.
+Pendiente. Queda abierto: Definir el tiempo de espera, el umbral por cuenta y por dirección, y cómo avisa el sistema a la persona y al equipo.

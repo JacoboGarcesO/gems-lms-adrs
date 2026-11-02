@@ -2,6 +2,7 @@
 
 - **Estado:** Propuesto
 - **Escenario:** D1 (Disponibilidad)
+- **En la entrega (README):** E1
 - **Documentos:** `GEMS_Escenarios_arquitectonicos.html`, `GEMS_ISO25010_priorizacion.html`, `GEMS_ADR.html`
 
 ## Context
@@ -44,11 +45,10 @@ Durante la caída se permite ver contenido ya cargado y avanzar lecciones; se ni
 
 ## Decision
 
-Se adopta la **opción C**: durante la caída de autenticación se aceptan las sesiones vigentes solo para lectura (ver contenido ya cargado y avanzar lecciones) y se niegan los cambios de usuarios, notas, archivos privados y cualquier operación de administración. La opción A se descarta porque deja sin servicio a todas las sesiones durante la falla y no cumple la medida de reingreso. La opción B se descarta porque durante la caída aceptaría también las operaciones sensibles sin aplicar revocaciones ni desactivaciones de cuentas.
+Pendiente: se elige entre A, B, C cuando se cuente con las tácticas.
+
+> Lectura preliminar (no es la decisión): Con A («fallar cerrado») se incumple la medida de como máximo 5 % de sesiones obligadas a reingresar. B y C la cumplen; C limita mejor el riesgo, B es más simple.
 
 ## Consequences
 
-- **Gana:** quienes ya están dentro siguen estudiando durante la caída, con un aviso claro, y lo crítico queda protegido; así se cumple que como máximo el 5 % de las sesiones activas deba reingresar.
-- **Paga:** hay que clasificar cada operación como de lectura o sensible, y explicar al usuario por qué algo no está disponible mientras dura la falla.
-- **No resuelve:** los inicios de sesión nuevos, que siguen mostrando el mensaje de mantenimiento, y la revocación de cuentas durante la caída, que queda pendiente hasta que vuelva autenticación (ver ADR-001).
-- **Supuesto abierto:** la mayor parte de lo que hace un estudiante en la franja de estudio es leer contenido y avanzar lecciones, así que negar las operaciones sensibles no afecta su estudio.
+Pendiente. Queda abierto: Decidir cuánto tiempo y para qué operaciones se acepta una sesión vigente sin consultar. Relacionado con el ADR-001.

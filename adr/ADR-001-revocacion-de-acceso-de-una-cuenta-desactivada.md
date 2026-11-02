@@ -2,6 +2,7 @@
 
 - **Estado:** Propuesto
 - **Escenario:** S3 (Seguridad)
+- **En la entrega (README):** E3
 - **Documentos:** `GEMS_Escenarios_arquitectonicos.html`, `GEMS_ISO25010_priorizacion.html`, `GEMS_ADR.html`
 
 ## Context
@@ -44,11 +45,10 @@ Cuando una cuenta se desactiva, autenticación avisa a los demás servicios, que
 
 ## Decision
 
-Se adopta la **opción B**: guardar unos segundos la respuesta de autenticación sobre cada sesión y consultarla solo cuando caduca, con un plazo de 5 s. La opción A se descarta porque agrega una llamada por solicitud y no asegura la latencia añadida de 20 ms o menos. La opción C se descarta por ahora: exige un respaldo ante avisos perdidos para garantizar la revocación, y B ya cumple la medida.
+Pendiente: se elige entre A, B, C cuando se cuente con las tácticas.
+
+> Lectura preliminar (no es la decisión): Sobre el papel, B cumple la medida de 10 s o menos con un plazo de 5 s. Falta demostrarlo con una prueba y medir el costo en latencia para el 95 % de las solicitudes; C solo se justifica si se quiere bajar de ≈ 1 s.
 
 ## Consequences
 
-- **Gana:** la revocación llega en 5 s o menos, dentro de los 10 s de la medida, con muy poca carga sobre autenticación.
-- **Paga:** la revocación llega con el retraso del plazo, así que una cuenta desactivada puede seguir activa hasta 5 s. La memoria crece con las sesiones activas y se pierde al reiniciar, y debe poder reconstruirse.
-- **No resuelve:** el comportamiento cuando autenticación cae, que queda fuera del alcance de este escenario (ver ADR-002).
-- **Supuesto abierto:** un plazo de 5 s cumple la medida de 10 s también con 800 sesiones activas.
+Pendiente. Queda abierto: Medir la latencia real de la verificación por servicio y el comportamiento con la caída de autenticación (ver ADR-002).

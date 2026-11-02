@@ -2,6 +2,7 @@
 
 - **Estado:** Propuesto
 - **Escenario:** F1 (Fiabilidad)
+- **En la entrega (README):** E4
 - **Documentos:** `GEMS_Escenarios_arquitectonicos.html`, `GEMS_ISO25010_priorizacion.html`, `GEMS_ADR.html`
 
 ## Context
@@ -44,11 +45,10 @@ Se aceptan todos los envíos y una tarea periódica elimina los duplicados.
 
 ## Decision
 
-Se adopta la **opción A**: cada envío lleva el identificador de la sesión del quiz y se acepta una sola vez; si ya fue recibido, el sistema devuelve el mismo resultado en lugar de crear otro intento. La opción B se descarta porque serializa los envíos, puede dejar al estudiante esperando y arriesga bloqueos si el proceso falla a medio camino. La opción C se descarta porque durante un tiempo habría intentos duplicados visibles en notas y reportes, y no cumple la medida de 0 intentos duplicados.
+Pendiente: se elige entre A, B, C cuando se cuente con las tácticas.
+
+> Lectura preliminar (no es la decisión): A aprovecha la sesión de quiz y las restricciones que ya existen y cumple la medida con poco costo; B no se justifica salvo concurrencia extrema; C no cumple con 0 duplicados en todo momento.
 
 ## Consequences
 
-- **Gana:** reenvíos seguros: el estudiante que se reconecta ve su resultado sin repetir el quiz, con 0 intentos duplicados y 0 perdidos.
-- **Paga:** una comprobación más por cada envío, que se concentra en el cierre del tiempo del quiz, cuando llegan muchos envíos a la vez.
-- **No resuelve:** el envío que se pierde antes de llegar al sistema: si la conexión se corta antes de que el servidor lo reciba, ese envío no queda registrado.
-- **Supuesto abierto:** la comprobación adicional por envío no degrada la calificación de 300 envíos en 60 s al cerrar el tiempo.
+Pendiente. Queda abierto: Probar el reenvío del mismo envío y el cierre de tiempo simultáneo; definir qué ve el estudiante si su envío ya fue recibido.

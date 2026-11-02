@@ -24,6 +24,8 @@ Necesitamos una plataforma de aprendizaje para varias instituciones, con usuario
 4. La plataforma debe soportar 20.000 visitantes en una hora por un pico público y 300 envíos de quiz en 60 s.
 5. La disponibilidad mensual propuesta es de 99,5 % entre 6:00 y 23:00; la carga inicial tiene un presupuesto de 650 kB sin comprimir.
 
+Las cifras de carga, las metas de tiempo de respuesta y la disponibilidad son propuestas definidas por el equipo; no son mediciones ni un acuerdo de servicio firmado.
+
 **Tensión dominante, en una línea:**
 En este sistema, seguridad choca con disponibilidad, rendimiento y usabilidad porque verificar, limitar y proteger cada operación puede impedir que los usuarios continúen estudiando o ingresen.
 
@@ -55,10 +57,22 @@ Bajamos Adecuación funcional, Compatibilidad y Portabilidad a 1, y Mantenibilid
 
 ## 4. Escenarios de calidad
 
-Los cinco escenarios críticos de esta entrega (E1 a E5) son los escenarios D1, S2, S3, F1 y E2 del documento completo de 24 escenarios.
+En esta entrega los escenarios críticos se llaman E1 a E5. En los documentos HTML y en el CSV tienen el ID propio del atributo. Esta tabla relaciona ambos nombres y el ADR que cada uno origina:
+
+| En esta entrega | En los documentos | Atributo y característica ISO 25010 | ADR |
+|---|---|---|---|
+| E1 | D1 | Disponibilidad › Disponibilidad, tolerancia a fallos | ADR-002 |
+| E2 | S2 | Seguridad › Autenticidad | ADR-005 |
+| E3 | S3 | Seguridad › Responsabilidad e integridad | ADR-001 |
+| E4 | F1 | Fiabilidad › Madurez | ADR-004 |
+| E5 | E2 | Escalabilidad › Capacidad | ADR-003 |
+
+Estos cinco son los escenarios críticos. Los otros 19 escenarios del documento completo (24 en total, tres por atributo) no se desarrollan aquí y están en [gems-lms-adrs/GEMS_escenarios_de_calidad.csv](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_escenarios_de_calidad.csv) y en [gems-lms-adrs/GEMS_Escenarios_arquitectonicos.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_Escenarios_arquitectonicos.html).
 
 ### E1
+- Escenario en los documentos: D1
 - Atributo dominante: Disponibilidad
+- Atributo y característica ISO 25010: Disponibilidad › Disponibilidad, tolerancia a fallos
 - Otro atributo que toca (si lo hay): Seguridad
 - Fuente del estímulo: Falla inesperada del servicio de autenticación
 - Estímulo: El servicio de autenticación deja de responder de forma abrupta
@@ -70,7 +84,9 @@ Los cinco escenarios críticos de esta entrega (E1 a E5) son los escenarios D1, 
 - Dónde está en la entrega: [gems-lms-adrs/GEMS_Escenarios_arquitectonicos.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_Escenarios_arquitectonicos.html), escenario D1; [gems-lms-adrs/adr/ADR-002-comportamiento-ante-la-caida-del-servicio-de-autenticacion.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-002-comportamiento-ante-la-caida-del-servicio-de-autenticacion.md); también en [gems-lms-adrs/GEMS_escenarios_de_calidad.csv](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_escenarios_de_calidad.csv).
 
 ### E2
+- Escenario en los documentos: S2
 - Atributo dominante: Seguridad
+- Atributo y característica ISO 25010: Seguridad › Autenticidad
 - Otro atributo que toca (si lo hay): Usabilidad
 - Fuente del estímulo: Atacante externo desde una sola dirección
 - Estímulo: Prueba contraseñas de forma masiva contra la pantalla de inicio de sesión
@@ -82,7 +98,9 @@ Los cinco escenarios críticos de esta entrega (E1 a E5) son los escenarios D1, 
 - Dónde está en la entrega: [gems-lms-adrs/GEMS_Escenarios_arquitectonicos.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_Escenarios_arquitectonicos.html), escenario S2; [gems-lms-adrs/adr/ADR-005-proteccion-frente-a-intentos-masivos-de-contrasenas.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-005-proteccion-frente-a-intentos-masivos-de-contrasenas.md); también en [gems-lms-adrs/GEMS_escenarios_de_calidad.csv](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_escenarios_de_calidad.csv).
 
 ### E3
+- Escenario en los documentos: S3
 - Atributo dominante: Seguridad
+- Atributo y característica ISO 25010: Seguridad › Responsabilidad e integridad
 - Otro atributo que toca (si lo hay): Eficiencia de desempeño
 - Fuente del estímulo: Usuario que dejó la institución, con la cuenta desactivada por su administrador
 - Estímulo: Intenta descargar un archivo privado de una entrega con su sesión aún abierta
@@ -94,7 +112,9 @@ Los cinco escenarios críticos de esta entrega (E1 a E5) son los escenarios D1, 
 - Dónde está en la entrega: [gems-lms-adrs/GEMS_Escenarios_arquitectonicos.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_Escenarios_arquitectonicos.html), escenario S3; [gems-lms-adrs/adr/ADR-001-revocacion-de-acceso-de-una-cuenta-desactivada.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-001-revocacion-de-acceso-de-una-cuenta-desactivada.md); también en [gems-lms-adrs/GEMS_escenarios_de_calidad.csv](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_escenarios_de_calidad.csv).
 
 ### E4
+- Escenario en los documentos: F1
 - Atributo dominante: Fiabilidad
+- Atributo y característica ISO 25010: Fiabilidad › Madurez
 - Otro atributo que toca (si lo hay): Eficiencia de desempeño
 - Fuente del estímulo: Estudiante con conexión inestable en su celular
 - Estímulo: Su conexión se corta justo después de enviar la última respuesta de un quiz
@@ -106,7 +126,9 @@ Los cinco escenarios críticos de esta entrega (E1 a E5) son los escenarios D1, 
 - Dónde está en la entrega: [gems-lms-adrs/GEMS_Escenarios_arquitectonicos.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_Escenarios_arquitectonicos.html), escenario F1; [gems-lms-adrs/adr/ADR-004-registro-unico-de-un-intento-de-quiz-ante-cortes-de-red.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-004-registro-unico-de-un-intento-de-quiz-ante-cortes-de-red.md); también en [gems-lms-adrs/GEMS_escenarios_de_calidad.csv](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_escenarios_de_calidad.csv).
 
 ### E5
+- Escenario en los documentos: E2
 - Atributo dominante: Eficiencia de desempeño
+- Atributo y característica ISO 25010: Escalabilidad › Capacidad
 - Otro atributo que toca (si lo hay): Fiabilidad
 - Fuente del estímulo: Canal aliado con audiencia masiva
 - Estímulo: Publica un video que dirige 20.000 visitantes en una hora a la portada y a un curso gratis
@@ -129,7 +151,7 @@ Son los escenarios elegidos por tener una brecha medible, un atributo dominante 
 
 ## 6. ADR
 
-Los cinco ADR están en estado **Propuesto**. Cada uno ya trae la opción escogida, su Decision y sus Consequences. La numeración sigue la de los archivos de [gems-lms-adrs/adr/README.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/README.md).
+Los cinco ADR están en estado **Propuesto**: traen el Context (el escenario) y las opciones consideradas; la Decision y las Consequences quedan pendientes hasta el Bloque 3. La numeración sigue la de los archivos, que se relacionan con los escenarios en [gems-lms-adrs/adr/README.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/README.md). Las decisiones que el equipo prevé están guardadas aparte en [gems-lms-adrs/adr/decisiones-bloque-3.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/decisiones-bloque-3.md).
 
 ### ADR-001
 - Título: Revocación de acceso de una cuenta desactivada
@@ -161,15 +183,7 @@ Los cinco ADR están en estado **Propuesto**. Cada uno ya trae la opción escogi
 - ¿Cumple la medida de la respuesta? depende; exige un respaldo ante avisos perdidos.
 - Decisión de producto o de política que encierra: acepta operar un canal adicional entre servicios a cambio de una revocación casi inmediata.
 
-**Opción escogida:** B
-
-**Decision:** Se adopta la opción B: guardar unos segundos la respuesta de autenticación sobre cada sesión y consultarla solo cuando caduca, con un plazo de 5 s. La opción A se descarta porque agrega una llamada por solicitud y no asegura la latencia añadida de 20 ms o menos. La opción C se descarta por ahora: exige un respaldo ante avisos perdidos para garantizar la revocación, y B ya cumple la medida.
-
-**Consequences:**
-- Gana: la revocación llega en 5 s o menos, dentro de los 10 s de la medida, con muy poca carga sobre autenticación.
-- Paga: la revocación llega con el retraso del plazo, así que una cuenta desactivada puede seguir activa hasta 5 s. La memoria crece con las sesiones activas y se pierde al reiniciar, y debe poder reconstruirse.
-- No resuelve: el comportamiento cuando autenticación cae, que queda fuera del alcance de este escenario (ver ADR-002).
-- Supuesto abierto: un plazo de 5 s cumple la medida de 10 s también con 800 sesiones activas.
+**Lo que nos falta saber para elegir en el Bloque 3:** Medir la latencia real de la verificación por servicio y el comportamiento con la caída de autenticación (ver ADR-002).
 
 **Dónde está este ADR en la entrega:** [gems-lms-adrs/adr/ADR-001-revocacion-de-acceso-de-una-cuenta-desactivada.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-001-revocacion-de-acceso-de-una-cuenta-desactivada.md); también en [gems-lms-adrs/GEMS_ADR.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_ADR.html), pestaña «Los 5 ADR de GEMS».
 
@@ -203,15 +217,7 @@ Los cinco ADR están en estado **Propuesto**. Cada uno ya trae la opción escogi
 - ¿Cumple la medida de la respuesta? sí, con el costo de clasificar las operaciones.
 - Decisión de producto o de política que encierra: define qué operaciones se consideran sensibles y se niegan mientras autenticación no responda.
 
-**Opción escogida:** C
-
-**Decision:** Se adopta la opción C: durante la caída de autenticación se aceptan las sesiones vigentes solo para lectura (ver contenido ya cargado y avanzar lecciones) y se niegan los cambios de usuarios, notas, archivos privados y cualquier operación de administración. La opción A se descarta porque deja sin servicio a todas las sesiones durante la falla y no cumple la medida de reingreso. La opción B se descarta porque durante la caída aceptaría también las operaciones sensibles sin aplicar revocaciones ni desactivaciones de cuentas.
-
-**Consequences:**
-- Gana: quienes ya están dentro siguen estudiando durante la caída, con un aviso claro, y lo crítico queda protegido; así se cumple que como máximo el 5 % de las sesiones activas deba reingresar.
-- Paga: hay que clasificar cada operación como de lectura o sensible, y explicar al usuario por qué algo no está disponible mientras dura la falla.
-- No resuelve: los inicios de sesión nuevos, que siguen mostrando el mensaje de mantenimiento, y la revocación de cuentas durante la caída, que queda pendiente hasta que vuelva autenticación (ver ADR-001).
-- Supuesto abierto: la mayor parte de lo que hace un estudiante en la franja de estudio es leer contenido y avanzar lecciones, así que negar las operaciones sensibles no afecta su estudio.
+**Lo que nos falta saber para elegir en el Bloque 3:** Decidir cuánto tiempo y para qué operaciones se acepta una sesión vigente sin consultar. Relacionado con el ADR-001.
 
 **Dónde está este ADR en la entrega:** [gems-lms-adrs/adr/ADR-002-comportamiento-ante-la-caida-del-servicio-de-autenticacion.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-002-comportamiento-ante-la-caida-del-servicio-de-autenticacion.md); también en [gems-lms-adrs/GEMS_ADR.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_ADR.html), pestaña «Los 5 ADR de GEMS».
 
@@ -245,15 +251,7 @@ Los cinco ADR están en estado **Propuesto**. Cada uno ya trae la opción escogi
 - ¿Cumple la medida de la respuesta? sí, con más costo operativo.
 - Decisión de producto o de política que encierra: acepta pagar y operar un entorno público aparte a cambio de aislar a las instituciones.
 
-**Opción escogida:** C
-
-**Decision:** Se adopta la opción C: separar el tráfico público (portada y acceso de invitados) del de las instituciones y hacer que sus recursos crezcan automáticamente durante los picos de visitas y se reduzcan al terminar. La opción A se descarta porque el pico seguiría compartiendo recursos con las instituciones y el costo sube aunque el pico dure una hora. La opción B se descarta: protege la portada, pero el acceso de invitados sigue pasando por autenticación y, al servir la portada como contenido ya generado, se pierde la personalización de la portada de cada institución.
-
-**Consequences:**
-- Gana: un pico público no puede afectar a las instituciones, y la capacidad pública se ajusta sola a la demanda de 20.000 visitantes en una hora.
-- Paga: dos entornos que operar, sincronizar y desplegar, y reglas de crecimiento y reducción que definir y vigilar; el costo sube mientras dura el pico.
-- No resuelve: el límite de 30 invitados nuevos por hora por red, que sigue afectando a campus y colegios con una sola salida a Internet.
-- Supuesto abierto: la capacidad pública puede crecer con la rapidez suficiente para absorber 20.000 visitantes en una hora.
+**Lo que nos falta saber para elegir en el Bloque 3:** Medir la capacidad actual de la plataforma (prueba de carga) para saber cuánta brecha hay realmente.
 
 **Dónde está este ADR en la entrega:** [gems-lms-adrs/adr/ADR-003-absorber-un-pico-de-visitas-publicas-sin-afectar-a-las-insti.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-003-absorber-un-pico-de-visitas-publicas-sin-afectar-a-las-insti.md); también en [gems-lms-adrs/GEMS_ADR.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_ADR.html), pestaña «Los 5 ADR de GEMS».
 
@@ -287,15 +285,7 @@ Los cinco ADR están en estado **Propuesto**. Cada uno ya trae la opción escogi
 - ¿Cumple la medida de la respuesta? no; viola «0 intentos duplicados».
 - Decisión de producto o de política que encierra: tolera duplicados temporales a cambio de no añadir costo al envío.
 
-**Opción escogida:** A
-
-**Decision:** Se adopta la opción A: cada envío lleva el identificador de la sesión del quiz y se acepta una sola vez; si ya fue recibido, el sistema devuelve el mismo resultado en lugar de crear otro intento. La opción B se descarta porque serializa los envíos, puede dejar al estudiante esperando y arriesga bloqueos si el proceso falla a medio camino. La opción C se descarta porque durante un tiempo habría intentos duplicados visibles en notas y reportes, y no cumple la medida de 0 intentos duplicados.
-
-**Consequences:**
-- Gana: reenvíos seguros: el estudiante que se reconecta ve su resultado sin repetir el quiz, con 0 intentos duplicados y 0 perdidos.
-- Paga: una comprobación más por cada envío, que se concentra en el cierre del tiempo del quiz, cuando llegan muchos envíos a la vez.
-- No resuelve: el envío que se pierde antes de llegar al sistema: si la conexión se corta antes de que el servidor lo reciba, ese envío no queda registrado.
-- Supuesto abierto: la comprobación adicional por envío no degrada la calificación de 300 envíos en 60 s al cerrar el tiempo.
+**Lo que nos falta saber para elegir en el Bloque 3:** Probar el reenvío del mismo envío y el cierre de tiempo simultáneo; definir qué ve el estudiante si su envío ya fue recibido.
 
 **Dónde está este ADR en la entrega:** [gems-lms-adrs/adr/ADR-004-registro-unico-de-un-intento-de-quiz-ante-cortes-de-red.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-004-registro-unico-de-un-intento-de-quiz-ante-cortes-de-red.md); también en [gems-lms-adrs/GEMS_ADR.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_ADR.html), pestaña «Los 5 ADR de GEMS».
 
@@ -307,7 +297,7 @@ Los cinco ADR están en estado **Propuesto**. Cada uno ya trae la opción escogi
 
 **Opción A:**
 - Qué haría el sistema: Aplicaría el límite general de solicitudes por dirección, sin distinguir intentos fallidos de inicio de sesión.
-- Gana: Ya existe y no afecta el uso normal.
+- Gana: No afecta el uso normal.
 - Paga: Permite hasta 600 intentos por minuto por dirección; no hay alerta ni protección por cuenta.
 - Atributo que sacrifica: Seguridad
 - ¿Cumple la medida de la respuesta? no; 600 intentos por minuto superan el máximo de 10.
@@ -329,15 +319,7 @@ Los cinco ADR están en estado **Propuesto**. Cada uno ya trae la opción escogi
 - ¿Cumple la medida de la respuesta? sí, con un captcha accesible.
 - Decisión de producto o de política que encierra: acepta añadir pasos de verificación (captcha y MFA) al ingreso de los usuarios.
 
-**Opción escogida:** C
-
-**Decision:** Se adopta la opción C: tras varios fallos de inicio de sesión se exige un captcha, y el ingreso se completa con verificación en dos pasos (MFA). La opción A se descarta porque permite hasta 600 intentos por minuto por dirección y no cumple el máximo de 10. La opción B se descarta como medida única: frena la fuerza bruta con esperas, pero no distingue a una persona de un programa ni protege la cuenta si la contraseña ya fue adivinada.
-
-**Consequences:**
-- Gana: frena la automatización y protege la cuenta aunque se adivine la contraseña, y la fricción del captcha aparece solo ante sospecha.
-- Paga: otros pasos en el flujo de inicio de sesión (captcha y código de MFA) y dependencias nuevas que mantener; si el captcha es visual, hay problemas de accesibilidad.
-- No resuelve: la alerta al equipo en 5 min o menos, que requiere un aviso aparte.
-- Supuesto abierto: los estudiantes, incluidos los de 14 años y los de celulares de gama baja, pueden completar el captcha y el MFA sin abandonar el inicio de sesión.
+**Lo que nos falta saber para elegir en el Bloque 3:** Definir el tiempo de espera, el umbral por cuenta y por dirección, y cómo avisa el sistema a la persona y al equipo.
 
 **Dónde está este ADR en la entrega:** [gems-lms-adrs/adr/ADR-005-proteccion-frente-a-intentos-masivos-de-contrasenas.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-005-proteccion-frente-a-intentos-masivos-de-contrasenas.md); también en [gems-lms-adrs/GEMS_ADR.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_ADR.html), pestaña «Los 5 ADR de GEMS».
 
@@ -357,14 +339,11 @@ Cómo equilibrar seguridad y continuidad cuando autenticación falla, cómo prot
 - [x] Cada escenario tiene estímulo observable, respuesta concreta y medida verificable.
 - [x] Los ADR corresponden a escenarios críticos y justificamos por qué esos.
 - [x] Cada ADR tiene al menos dos opciones, descritas como mecanismos y no como marcas.
-- [ ] No elegimos todavía: no se cumple, los cinco ADR ya tienen la Decision escrita (siguen en estado Propuesto).
+- [x] No elegimos todavía: la Decision y las Consequences de los cinco ADR quedan pendientes; las decisiones previstas están aparte, en [gems-lms-adrs/adr/decisiones-bloque-3.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/decisiones-bloque-3.md), para el Bloque 3.
 
 ## 9. Inconsistencias detectadas por la IA (solo la IA diligencia; no corrija lo anterior)
 
-- Las cifras de carga y disponibilidad son metas propuestas o datos de referencia; no hay mediciones de uso publicadas ni pruebas de carga. La disponibilidad de 99,5 % no es un SLA firmado.
-- El autochequeo pide «no elegimos todavía», pero los cinco ADR ya incluyen la opción escogida, su Decision y sus Consequences; el estado se dejó en Propuesto.
-- La sección 2 dice que los supuestos no aplican a pregrado, pero cada ADR cierra sus Consequences con un «Supuesto abierto», como en el ejemplo de la plantilla.
-- Los escenarios se llaman E1 a E5 aquí y D1, S2, S3, F1 y E2 en los HTML y el CSV; la correspondencia está en la sección 4. Los ADR siguen la numeración de los archivos (ADR-001 a ADR-005), que no coincide con el orden de los escenarios.
-- La opción A del ADR-005 todavía dice «Ya existe», una referencia a lo que hoy hace el sistema.
-- Se entregan cinco escenarios críticos en el texto, pero el documento completo tiene 24 escenarios (tres por atributo); la plantilla permite de 3 a 5.
-- Algunos escenarios usan nombres de atributos refinados (por ejemplo, Escalabilidad) que se mapean a las categorías ISO de la plantilla; se conservó la categoría dominante indicada por el escenario o ADR.
+- Las cifras de carga, las metas de tiempo de respuesta y la disponibilidad de 99,5 % son propuestas definidas por el equipo; no hay mediciones de uso publicadas, pruebas de carga ni un acuerdo de servicio firmado.
+- Los escenarios se llaman E1 a E5 en este texto y D1, S2, S3, F1 y E2 en los documentos HTML y el CSV, y los ADR tienen numeración propia (ADR-001 a ADR-005). Se conservaron los tres nombres y la sección 4 y [gems-lms-adrs/adr/README.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/README.md) los relacionan.
+- El documento completo tiene 24 escenarios y aquí se desarrollan cinco; los otros 19 están solo en el CSV y en el documento de escenarios. La plantilla permite de 3 a 5.
+- Algunos escenarios usan atributos refinados (por ejemplo, Escalabilidad) que se mapean a las categorías de la plantilla; la sección 4 indica el atributo dominante y, aparte, el atributo y la característica ISO 25010 de cada escenario.

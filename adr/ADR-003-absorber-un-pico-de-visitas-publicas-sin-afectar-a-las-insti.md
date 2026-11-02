@@ -2,6 +2,7 @@
 
 - **Estado:** Propuesto
 - **Escenario:** E2 (Escalabilidad)
+- **En la entrega (README):** E5
 - **Documentos:** `GEMS_Escenarios_arquitectonicos.html`, `GEMS_ISO25010_priorizacion.html`, `GEMS_ADR.html`
 
 ## Context
@@ -31,7 +32,7 @@ Aumentar los recursos de la plataforma actual y el límite de cada servicio.
 La portada y el listado público se generan cada pocos minutos y se entregan como archivos, sin pasar por los servicios de educación en cada visita.
 
 - **Gana:** La mayor parte del pico no toca los servicios; el tiempo de respuesta es casi constante.
-- **Paga:** Mantenibilidad: hay que regenerar el contenido y decidir qué tan viejo puede estar (ej. hasta 5 minutos).
+- **Paga:** Mantenibilidad: hay que regenerar el contenido y decidir qué tan viejo puede estar (ej. hasta 5 minutos). Se pierde la personalización de la portada de cada institución.
 - **¿Cumple la medida?** Sí para la portada; el acceso de invitados sigue pasando por autenticación y debe medirse.
 
 ### C. Separar el tráfico público y escalarlo automáticamente
@@ -44,11 +45,10 @@ La portada y el acceso de invitados se atienden con recursos distintos a los de 
 
 ## Decision
 
-Se adopta la **opción C**: separar el tráfico público (portada y acceso de invitados) del de las instituciones y hacer que sus recursos crezcan automáticamente durante los picos de visitas y se reduzcan al terminar. La opción A se descarta porque el pico seguiría compartiendo recursos con las instituciones y el costo sube aunque el pico dure una hora. La opción B se descarta: protege la portada, pero el acceso de invitados sigue pasando por autenticación y, al servir la portada como contenido ya generado, se pierde la personalización de la portada de cada institución.
+Pendiente: se elige entre A, B, C cuando se cuente con las tácticas.
+
+> Lectura preliminar (no es la decisión): B protege a las instituciones con el menor costo si la portada puede ser contenido estático regenerado; C es la única que aísla del todo. A es la más barata de probar y debe medirse primero.
 
 ## Consequences
 
-- **Gana:** un pico público no puede afectar a las instituciones, y la capacidad pública se ajusta sola a la demanda de 20.000 visitantes en una hora.
-- **Paga:** dos entornos que operar, sincronizar y desplegar, y reglas de crecimiento y reducción que definir y vigilar; el costo sube mientras dura el pico.
-- **No resuelve:** el límite de 30 invitados nuevos por hora por red, que sigue afectando a campus y colegios con una sola salida a Internet.
-- **Supuesto abierto:** la capacidad pública puede crecer con la rapidez suficiente para absorber 20.000 visitantes en una hora.
+Pendiente. Queda abierto: Medir la capacidad actual de la plataforma (prueba de carga) para saber cuánta brecha hay realmente.
