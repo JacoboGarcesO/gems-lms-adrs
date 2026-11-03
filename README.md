@@ -4,7 +4,7 @@ integrantes: Angie Carolina Pareja Villa; Jacobo Garc√©s Oquendo; Jose Daniel L√
 nivel: pregrado
 caso: proyecto propio
 nombre_del_sistema: GEMS LMS
-formato_de_entrega: otro
+formato_de_entrega: widget
 enlace_o_archivo_de_la_entrega: https://github.com/JacoboGarcesO/gems-lms-adrs
 ---
 
