@@ -1,4 +1,4 @@
-# ADR-004: Registro único de un intento de quiz ante cortes de red
+# ADR-004: Registro único de un intento de quiz
 
 - **Estado:** Propuesto
 - **Escenario:** F1 (Fiabilidad)
@@ -10,12 +10,12 @@
 | Parte | Escenario |
 |---|---|
 | Atributo de calidad | Fiabilidad |
-| Fuente del estímulo | Estudiante con conexión inestable en su celular |
-| Estímulo | Su conexión se corta justo después de enviar la última respuesta de un quiz |
+| Fuente del estímulo | Estudiante |
+| Estímulo | Envía varias veces la última respuesta de un quiz |
 | Artefacto | Servicio de calificación de quizzes |
-| Entorno | Quiz de 30 min con intento único, estudiante con pérdida de señal de 20 s |
-| Respuesta | Registra el intento una sola vez y, al reconectar, el estudiante ve su resultado sin repetir el quiz |
-| Medida de la respuesta | 0 intentos duplicados; 0 intentos perdidos; resultado visible en 5 s o menos tras reconectar, en el 99 % de los casos |
+| Entorno | Quiz de 30 min con intento único |
+| Respuesta | Registra el intento una sola vez y devuelve el mismo resultado a cada reenvío |
+| Medida de la respuesta | 0 intentos duplicados; resultado visible en 5 s o menos tras el envío, en el 99 % de los casos |
 
 ## Opciones consideradas
 

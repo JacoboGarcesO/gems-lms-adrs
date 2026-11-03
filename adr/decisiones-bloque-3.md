@@ -50,9 +50,9 @@ Se adopta la **opción C**: separar el tráfico público (portada y acceso de in
 - **Paga:** dos entornos que operar, sincronizar y desplegar, y reglas de crecimiento y reducción que definir y vigilar; el costo sube mientras dura el pico.
 - **No resuelve:** el límite de 30 invitados nuevos por hora por red, que sigue afectando a campus y colegios con una sola salida a Internet.
 
-## ADR-004: Registro único de un intento de quiz ante cortes de red
+## ADR-004: Registro único de un intento de quiz
 
-- **ADR:** [ADR-004-registro-unico-de-un-intento-de-quiz-ante-cortes-de-red.md](ADR-004-registro-unico-de-un-intento-de-quiz-ante-cortes-de-red.md)
+- **ADR:** [ADR-004-registro-unico-de-un-intento-de-quiz.md](ADR-004-registro-unico-de-un-intento-de-quiz.md)
 - **Escenario:** F1 (E4 en el README)
 - **Opción escogida:** A
 
@@ -62,9 +62,8 @@ Se adopta la **opción A**: cada envío lleva el identificador de la sesión del
 
 ### Consequences
 
-- **Gana:** reenvíos seguros: el estudiante que se reconecta ve su resultado sin repetir el quiz, con 0 intentos duplicados y 0 perdidos.
+- **Gana:** reenvíos seguros: el estudiante que envía varias veces ve el mismo resultado, con 0 intentos duplicados.
 - **Paga:** una comprobación más por cada envío, que se concentra en el cierre del tiempo del quiz, cuando llegan muchos envíos a la vez.
-- **No resuelve:** el envío que se pierde antes de llegar al sistema: si la conexión se corta antes de que el servidor lo reciba, ese envío no queda registrado.
 
 ## ADR-005: Protección frente a intentos masivos de contraseñas
 

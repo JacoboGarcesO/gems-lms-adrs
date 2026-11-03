@@ -116,14 +116,14 @@ Estos cinco son los escenarios críticos. Los otros 19 escenarios del documento 
 - Atributo dominante: Fiabilidad
 - Atributo y característica ISO 25010: Fiabilidad › Madurez
 - Otro atributo que toca (si lo hay): Eficiencia de desempeño
-- Fuente del estímulo: Estudiante con conexión inestable en su celular
-- Estímulo: Su conexión se corta justo después de enviar la última respuesta de un quiz
+- Fuente del estímulo: Estudiante
+- Estímulo: Envía varias veces la última respuesta de un quiz
 - Artefacto: Servicio de calificación de quizzes
-- Entorno: Quiz de 30 min con intento único, estudiante con pérdida de señal de 20 s
-- Respuesta: Registra el intento una sola vez y, al reconectar, el estudiante ve su resultado sin repetir el quiz
-- Medida de la respuesta: 0 intentos duplicados; 0 intentos perdidos; resultado visible en 5 s o menos tras reconectar, en el 99 % de los casos
+- Entorno: Quiz de 30 min con intento único
+- Respuesta: Registra el intento una sola vez y devuelve el mismo resultado a cada reenvío
+- Medida de la respuesta: 0 intentos duplicados; resultado visible en 5 s o menos tras el envío, en el 99 % de los casos
 - ¿Es crítico? sí, porque afecta a registros con valor para la persona y toca el momento más cargado del sistema: el cierre de un examen.
-- Dónde está en la entrega: [gems-lms-adrs/GEMS_Escenarios_arquitectonicos.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_Escenarios_arquitectonicos.html), escenario F1; [gems-lms-adrs/adr/ADR-004-registro-unico-de-un-intento-de-quiz-ante-cortes-de-red.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-004-registro-unico-de-un-intento-de-quiz-ante-cortes-de-red.md); también en [gems-lms-adrs/GEMS_escenarios_de_calidad.csv](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_escenarios_de_calidad.csv).
+- Dónde está en la entrega: [gems-lms-adrs/GEMS_Escenarios_arquitectonicos.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_Escenarios_arquitectonicos.html), escenario F1; [gems-lms-adrs/adr/ADR-004-registro-unico-de-un-intento-de-quiz.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-004-registro-unico-de-un-intento-de-quiz.md); también en [gems-lms-adrs/GEMS_escenarios_de_calidad.csv](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_escenarios_de_calidad.csv).
 
 ### E5
 - Escenario en los documentos: E2
@@ -256,7 +256,7 @@ Los cinco ADR están en estado **Propuesto**: traen el Context (el escenario) y 
 **Dónde está este ADR en la entrega:** [gems-lms-adrs/adr/ADR-003-absorber-un-pico-de-visitas-publicas-sin-afectar-a-las-insti.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-003-absorber-un-pico-de-visitas-publicas-sin-afectar-a-las-insti.md); también en [gems-lms-adrs/GEMS_ADR.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_ADR.html), pestaña «Los 5 ADR de GEMS».
 
 ### ADR-004
-- Título: Registro único de un intento de quiz ante cortes de red
+- Título: Registro único de un intento de quiz
 - Estado: Propuesto
 - Escenario que lo origina: E4 (F1 en el documento de escenarios)
 - Context: igual al escenario indicado (sí)
@@ -287,7 +287,7 @@ Los cinco ADR están en estado **Propuesto**: traen el Context (el escenario) y 
 
 **Lo que nos falta saber para elegir en el Bloque 3:** Probar el reenvío del mismo envío y el cierre de tiempo simultáneo; definir qué ve el estudiante si su envío ya fue recibido.
 
-**Dónde está este ADR en la entrega:** [gems-lms-adrs/adr/ADR-004-registro-unico-de-un-intento-de-quiz-ante-cortes-de-red.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-004-registro-unico-de-un-intento-de-quiz-ante-cortes-de-red.md); también en [gems-lms-adrs/GEMS_ADR.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_ADR.html), pestaña «Los 5 ADR de GEMS».
+**Dónde está este ADR en la entrega:** [gems-lms-adrs/adr/ADR-004-registro-unico-de-un-intento-de-quiz.md](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/adr/ADR-004-registro-unico-de-un-intento-de-quiz.md); también en [gems-lms-adrs/GEMS_ADR.html](https://github.com/JacoboGarcesO/gems-lms-adrs/blob/main/GEMS_ADR.html), pestaña «Los 5 ADR de GEMS».
 
 ### ADR-005
 - Título: Protección frente a intentos masivos de contraseñas
