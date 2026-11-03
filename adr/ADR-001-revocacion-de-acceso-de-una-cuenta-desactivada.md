@@ -25,7 +25,7 @@ Cada servicio pregunta a autenticación si la sesión sigue vigente antes de ate
 
 - **Gana:** Revocación inmediata; la lógica es la más simple de razonar.
 - **Paga:** Rendimiento: añade una llamada por solicitud, concentra toda la carga en autenticación y la hace punto de fallo de cada petición.
-- **¿Cumple la medida?** Cumple la revocación, pero no la latencia añadida de 20 ms o menos con 800 sesiones activas (por verificar).
+- **¿Cumple la medida?** Cumple la revocación, pero no la latencia añadida de 20 ms o menos con 800 sesiones activas.
 
 ### B. Guardar la respuesta de autenticación unos segundos por sesión
 
